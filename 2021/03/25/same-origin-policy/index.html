@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>same-origin-policy | Hexo</title>
+
+
+    <meta name="keywords" content="Browser、same origin policy">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="同源策略 Same Origin Policy日常开发中最常与网络打交道，那关于浏览器的同源策略和跨域相关的知识是该整理一下了。首先需要明确的是，同源策略是浏览器的安全策略，由于存在这个策略，我们才需要对各种跨域需求进行处理。 同源策略的主要目的是为了保护用户的信息安全。 什么是同源同源的含义其实比较好理解，实际上就是三点  协议相同 域名相同 端口相同     url 说明 是否同源    ht">
+<meta property="og:type" content="article">
+<meta property="og:title" content="same-origin-policy">
+<meta property="og:url" content="http://example.com/2021/03/25/same-origin-policy/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="同源策略 Same Origin Policy日常开发中最常与网络打交道，那关于浏览器的同源策略和跨域相关的知识是该整理一下了。首先需要明确的是，同源策略是浏览器的安全策略，由于存在这个策略，我们才需要对各种跨域需求进行处理。 同源策略的主要目的是为了保护用户的信息安全。 什么是同源同源的含义其实比较好理解，实际上就是三点  协议相同 域名相同 端口相同     url 说明 是否同源    ht">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-25T05:46:18.000Z">
+<meta property="article:modified_time" content="2021-03-25T05:48:33.341Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Browser、same origin policy">
+<meta name="twitter:card" content="summary_large_image">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/default.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')===-1)this.media='all'">
+        
+    
+
+    
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Chellyyy</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a target="_blank" rel="noopener" href="https://github.com/Chellyyy" class="navbar-menu button">GitHub</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a target="_blank" rel="noopener" href="https://github.com/Chellyyy" class="dropdown-menu button">GitHub</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        same-origin-policy
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2021/03/" class="post-meta__date button">2021-03-25</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+
+<article class="post content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="同源策略-Same-Origin-Policy"><a href="#同源策略-Same-Origin-Policy" class="headerlink" title="同源策略 Same Origin Policy"></a>同源策略 Same Origin Policy</h1><p>日常开发中最常与网络打交道，那关于浏览器的同源策略和跨域相关的知识是该整理一下了。<br>首先需要明确的是，同源策略是浏览器的安全策略，由于存在这个策略，我们才需要对各种跨域需求进行处理。</p>
+<p>同源策略的主要目的是为了保护用户的信息安全。</p>
+<h2 id="什么是同源"><a href="#什么是同源" class="headerlink" title="什么是同源"></a>什么是同源</h2><p>同源的含义其实比较好理解，实际上就是三点</p>
+<ul>
+<li>协议相同</li>
+<li>域名相同</li>
+<li>端口相同</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">url</th>
+<th align="left">说明</th>
+<th align="left">是否同源</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="http://www.test.com/">http://www.test.com</a> <a target="_blank" rel="noopener" href="https://www.test.com/">https://www.test.com</a></td>
+<td align="left">同一域名，不同协议</td>
+<td align="left">不同源</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="http://www.test.com/">http://www.test.com</a> <a target="_blank" rel="noopener" href="https://www.test1.com/">https://www.test1.com</a></td>
+<td align="left">不同域名</td>
+<td align="left">不同源</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="http://www.test.com:8080/">http://www.test.com:8080</a> <a target="_blank" rel="noopener" href="https://www.test.com:8081/">https://www.test.com:8081</a></td>
+<td align="left">同一域名，不同端口</td>
+<td align="left">不同源</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.test.com/">https://www.test.com</a> <a target="_blank" rel="noopener" href="http://192.168.1.1/">http://192.168.1.1</a></td>
+<td align="left">域名和域名对应的 ip</td>
+<td align="left">不同源</td>
+</tr>
+</tbody></table>
+<h2 id="同源限制了什么"><a href="#同源限制了什么" class="headerlink" title="同源限制了什么"></a>同源限制了什么</h2><p>1、Cookie、localStorage 和 IndexDB 无法读取<br>2、DOM 无法获得<br>3、AJAX 请求不能发送</p>
+<h2 id="规避方法"><a href="#规避方法" class="headerlink" title="规避方法"></a>规避方法</h2><h3 id="1、读取-Cookie"><a href="#1、读取-Cookie" class="headerlink" title="1、读取 Cookie"></a>1、读取 Cookie</h3><p>cookie 的读取与其他属性有些不同。因为 cookie 的可见性是由 domain 属性和 path 属性决定的，所以他其实不受协议和端口的限制。只要是同一个 domain 和可见 path 下的 cookie，都能读取到。</p>
+<p>举个例子<br>sub.test.com 和 test.com 两个网站，他们是子域和主域的关系。<br>在不设置 domain 的情况下设置 cookie 时，sub.test.com 的默认 domain 就是 sub.test.com，test.com 的默认 domain 就是 test.com，所以他们的 cookie 不能互相读取。但是你可以将 cookie 的 domain 设为 .test.com，这样主域和子域的 cookie 就能互相读取。<br>这里有一个疑问，当我将 sub.test.com 的 domain 设置成 test.com，设置不设 domain 的 cookie 的 domain 仍是 sub.test.com。</p>
+<h4 id="可见-path"><a href="#可见-path" class="headerlink" title="可见 path"></a>可见 path</h4><ul>
+<li>/ 只能读取 / 下的 cookie</li>
+<li>/test 可以读取 / 和 /test 下的 cookie</li>
+</ul>
+<p>由于 cookie 的读取本身具有局限性，所以跨域后的规避可以这样操作</p>
+<ul>
+<li>前端读取不同 domain 的 cookie，可以把通过设置 document.domain 来读取相应 cookie。当然，你设置的 domain 必须是你当前 domain 的上一级域名，否则会报如下的错误。<br><code>Uncaught DOMException: Failed to set the &#39;domain&#39; property on &#39;Document&#39;: &#39;test&#39; is not a suffix of &#39;localhost&#39;.</code></li>
+<li>前端和服务器端设置 cookie 时指定可读的 domian 和 path，这个 domain 也遵循上面的规则，只能设置当前 domain 或 domain 上一级的域名，否则会设置失败。本地测试的现象是没有报错，但是也没有设置成功。</li>
+</ul>
+<h3 id="2、读取-localStorage、IndexedDB-和-DOM"><a href="#2、读取-localStorage、IndexedDB-和-DOM" class="headerlink" title="2、读取 localStorage、IndexedDB 和 DOM"></a>2、读取 localStorage、IndexedDB 和 DOM</h3><p>localStorage、IndexedDB 和 DOM 是实实在在受同源策略限制的，协议、域名和端口任意一项不相同就无法读取。<br>其实对于他们的读取可以简化成不同源的两个页面如何通信。<br>本身 localStorage 和 IndexedDB 的出现就是为了让我们能够更好地存储数据，而获取 DOM 大多情况也是为了获取 DOM 中的各种数据。泛化到业务场景中，也就是传递数据的事儿了。</p>
+<p>目前可以通过以下几种方式来进行通信。</p>
+<ul>
+<li><p>window.name<br>使用 window.name 的原理是同源 iframe 可以读取 contentWindow。具体操作如下<br>1、a 页面先载入一个不同源的 iframe 页面 b<br>2、在 b 页面 中修改 window.name 为需要的传递的数据<br>3、a 页面中修改这个 iframe 的 src 为同源的页面 c<br>4、a 页面获取之前设置的 window.name<br>按照这样的方式进行操作就能获取到子页面中的数据。如果子页面想要获取父页面中的数据，可以将 1、3 步骤换一下，2 步骤改成父页面直接修改 iframe.contentWindow.name 为需要传递的数据即可。<br>因为是通过 name 属性来传递参数，所以可传递的数据量很大，基本就是字符串长度的最大值。</p>
+<figure class="highlight plain"><figcaption><span>页面操作</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;记录 iframe onload 事件的加载次数</span><br><span class="line">var state &#x3D; 0;</span><br><span class="line">var iframe &#x3D; document.createElement(&quot;iframe&quot;);</span><br><span class="line">&#x2F;&#x2F; 加载跨域页面</span><br><span class="line">iframe.src &#x3D; &quot;http:&#x2F;&#x2F;sub.test.com&#x2F;test&#x2F;test.html&quot;;</span><br><span class="line">&#x2F;&#x2F; onload 事件会触发2次，第1次加载跨域页，在跨域页中将所需要的数据赋给 window.name</span><br><span class="line">iframe.onload &#x3D; function () &#123;</span><br><span class="line">  if (state &#x3D;&#x3D;&#x3D; 1) &#123;</span><br><span class="line">    &#x2F;&#x2F; 第2次 onload 成功后，读取同域 window.name 中数据</span><br><span class="line">    var data &#x3D; iframe.contentWindow.name;</span><br><span class="line">  &#125; else if (state &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">    &#x2F;&#x2F; 第1次onload(跨域页)成功后，切换到同域代理页面</span><br><span class="line">    iframe.contentWindow.location &#x3D; &quot;.&#x2F;testB.html&quot;;</span><br><span class="line">    state &#x3D; 1;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">document.body.appendChild(iframe);</span><br></pre></td></tr></table></figure></li>
+<li><p>fragment identifier 片段标识符<br>fragment identifier 其实就是 url # 后面的部分。常写 SPA 应用的小伙伴应该会对他很熟悉，因为 hash 模式的 router 就是基于他实现的。修改嵌入的 iframe 的 src 为 url#需要传递的数据，iframe 页面就能通过监听 hashchange 事件获得传递的数据。如果是子页面向父页面传递数据要多加一步，得先让父页面把自己当前的 url 传递给子页面，然后子页面去修改父页面的 href。<br>使用这个方法传递数据的限制暂时还未测试，猜测应该会和浏览器限制 url 的长度有关。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;父-&gt;子 a页面</span><br><span class="line">var iframe &#x3D; document.createElement(&quot;iframe&quot;);</span><br><span class="line">&#x2F;&#x2F; 加载跨域页面</span><br><span class="line">iframe.src &#x3D; url;</span><br><span class="line">setTimeout(function () &#123;</span><br><span class="line">  iframe.src &#x3D; url + &quot;#a&#x3D;111&quot;;</span><br><span class="line">&#125;, 1000);</span><br><span class="line">document.body.appendChild(iframe);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;父-&gt;子 b页面</span><br><span class="line">window.onhashchange &#x3D; function () &#123;</span><br><span class="line">  alert(window.location.hash)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;子-&gt;父 a页面</span><br><span class="line">var iframe &#x3D; document.createElement(&quot;iframe&quot;);</span><br><span class="line">&#x2F;&#x2F; 加载跨域页面</span><br><span class="line">iframe.src &#x3D; url;</span><br><span class="line">setTimeout(function () &#123;</span><br><span class="line">  var selfurl &#x3D; document.location.href;</span><br><span class="line">  iframe.src &#x3D; url + &quot;#&quot; + selfurl;</span><br><span class="line">&#125;, 1000);</span><br><span class="line">document.body.appendChild(iframe);</span><br><span class="line">window.onhashchange &#x3D; function () &#123;</span><br><span class="line">  alert(&quot;from son&quot; + window.location.hash);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;子-&gt;父 b页面</span><br><span class="line">window.onhashchange &#x3D; function () &#123;</span><br><span class="line">  let target &#x3D; window.location.hash.slice(1);</span><br><span class="line">  window.parent.parent.location.href &#x3D; target + &quot;#111aaaa&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>postMessage<br>严格意义上来说上面两种方法都是对跨域页面获取数据的破解，postMessage 才是正统的非同源页面之间传递数据的方法。</p>
+<blockquote>
+<p>window.postMessage() 方法提供了一种受控机制来规避此限制，只要正确的使用，这种方法就很安全。</p>
+</blockquote>
+<p>postMessage 是新增的 API，使用前记得查看一下兼容性。<br>使用上需要注意的就是调用 postMessage 和监听 message 事件的的主体是同一个。也就是说子页面向父页面发送消息时，需要获取 window.parent 去调用 postMessage。父页面向子页面发送消息时，可以直接获取 iframe，然后调用 postMessage。</p>
+<blockquote>
+<p>postMessage((message, targetOrigin, [transfer]);<br>message<br>将要发送到其他 window 的数据。它将会被结构化克隆算法序列化。这意味着你可以不受什么限制的将数据对象安全的传送给目标窗口而无需自己序列化。<br>targetOrigin<br>通过窗口的 origin 属性来指定哪些窗口能接收到消息事件，其值可以是字符串”_”（表示无限制）或者一个 URI。<br>在发送消息的时候，如果目标窗口的协议、主机地址或端口这三者的任意一项不匹配 targetOrigin 提供的值，那么消息就不会被发送；只有三者完全匹配，消息才会被发送。<br>这个机制用来控制消息可以发送到哪些窗口；例如，当用 postMessage 传送密码时，这个参数就显得尤为重要，必须保证它的值与这条包含密码的信息的预期接受者的 origin 属性完全一致，来防止密码被恶意的第三方截获。<br>如果你明确的知道消息应该发送到哪个窗口，那么请始终提供一个有确切值的 targetOrigin，而不是_。不提供确切的目标将导致数据泄露到任何对数据感兴趣的恶意站点。<br>transfer 可选<br>是一串和 message 同时传递的 Transferable 对象. 这些对象的所有权将被转移给消息的接收方，而发送一方将不再保有所有权</p>
+</blockquote>
+<p>下面这个示例是子页面向父页面发送消息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; a 页面</span><br><span class="line">window.addEventListener(&quot;message&quot;, function (event) &#123;</span><br><span class="line">  console.log(event);</span><br><span class="line">&#125;, false);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; b 页面</span><br><span class="line">var b &#x3D; &quot;bbb&quot;;</span><br><span class="line">window.parent.postMessage(&#123;</span><br><span class="line">  b</span><br><span class="line">&#125;, &quot;*&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>另外特别需要注意的是关于 DOM 的获取，如果只是两个不同子域的页面，将 document.domain 设置为同一主域就可以读取相应数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;a 页面 main.test.com</span><br><span class="line">var a &#x3D; &quot;aaa&quot;;</span><br><span class="line">&#x2F;&#x2F; domain 设置为主域</span><br><span class="line">document.domain &#x3D; &quot;test.com&quot;;</span><br><span class="line">var iframe &#x3D; document.createElement(&quot;iframe&quot;);</span><br><span class="line">&#x2F;&#x2F; 加载跨域页面</span><br><span class="line">iframe.src &#x3D; &quot;sub.test.com&quot;;</span><br><span class="line">document.body.appendChild(iframe);</span><br><span class="line">iframe.onload &#x3D; function()&#123;</span><br><span class="line">  &#x2F;&#x2F; 可以获取到变量</span><br><span class="line">  var data &#x3D; iframe.contentWindow.b</span><br><span class="line">  &#x2F;&#x2F; 可以获取到 DOM</span><br><span class="line">  var dom &#x3D; iframe.contentWindow.document.body;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;b 页面 sub.test.com</span><br><span class="line">var b &#x3D; &quot;bbb&quot;;</span><br><span class="line">&#x2F;&#x2F; domain 设置为主域</span><br><span class="line">document.domain &#x3D; &quot;test.com&quot;;</span><br></pre></td></tr></table></figure>
+<h3 id="3、AJAX-请求"><a href="#3、AJAX-请求" class="headerlink" title="3、AJAX 请求"></a>3、AJAX 请求</h3></li>
+</ul>
+<p>AJAX 请求跨域日常使用比较多，常用的方法有以下几种</p>
+<ul>
+<li><p>JSONP<br>这个方法是向服务器请求的时候，在 url 后面写上 callback 方法的名字，请求返回实际上是返回了一个 调用 callback 方法的 js 文件。需要返回的参数也就在调用的时候传进去了。<br>所以局限也很明确，只支持 get 方法。</p>
+</li>
+<li><p>使用代理服务器<br>所有的请求先发送给这个代理服务器，由这个代理服务器去请求实际的接口，再把需要的数据返回。<br>（这个方式就可以真切地体会到，同源策略只是浏览器的一种安全策略）</p>
+</li>
+<li><p>使用 CORS Cross-Origin Resource Sharing 跨域资源共享<br>目前基本上所有的浏览器都支持 CORS，所以只需要服务器端进行处理。对于前端来说，请求和同源的 AJAX 请求是一致的。<br>前端发送请求的时候浏览器会自动带上 origin 字段，服务器端去判断这个 origin 是否是可接受的地址，在相应头中设置 Access-Control-Allow-Origin 字段的值。<br>这样前端就能正常获取到数据啦。<br>这里只对 CORS 做了一个简单介绍，详细的下次细说吧。</p>
+</li>
+</ul>
+<p>总结：</p>
+<ul>
+<li>读取跨域的 cookie 需要设置 path 和 domain</li>
+<li>不同源页面间通讯可以通过设置 window.name、location 的 hash 值和 postMessage 来实现。<br>不难发现的是，设置 hash 和 postMessage 都是通过设置一个监听函数来实现的，所以我们是异步获取数据的。<br>而设置 window.name 虽然是在 iframe.onload 事件中获取的，但是本质上是在等待 iframe 的加载，确保数据已经设置成功。<br>这里还有值得思考的地方。</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html">浏览器同源政策及其规避方法</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy">浏览器的同源策略</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage">window.postMessage</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS">跨源资源共享（CORS）</a><br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000011145364">前端常见跨域解决方案（全）</a></p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2021-03-25</p></div> 
+    <div class="post-meta__cats"><a href="/tags/Browser%E3%80%81same-origin-policy/" class="post-tags__link button"># Browser、same origin policy</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/2021/03/25/border/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            border
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+
+
+</main>
+
+            <footer class="footer">
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2020&nbsp;-&nbsp;2021 <a href="/">Hexo</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+  
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+    </body>
+</html>

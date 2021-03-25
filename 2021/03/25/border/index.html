@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+    
+    
+    
+    
+
+
+    <!-- meta -->
+
+
+<title>border | Hexo</title>
+
+
+    <meta name="keywords" content="CSS、border">
+
+
+
+
+    <!-- OpenGraph -->
+ 
+    <meta name="description" content="Border我平常border写得最多的样式就是 123&amp;#123;    border:1px solid color    &amp;#125; 这就能看出来border其实是三个属性的简写，分别是 border-width、border-style、border-color。这三个属性都与方向有关，所以可以分开按照方向写，也可以简写。 简写快速记忆 方向记忆：顺序为上右下左，也可以按照从上开始顺时针">
+<meta property="og:type" content="article">
+<meta property="og:title" content="border">
+<meta property="og:url" content="http://example.com/2021/03/25/border/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Border我平常border写得最多的样式就是 123&amp;#123;    border:1px solid color    &amp;#125; 这就能看出来border其实是三个属性的简写，分别是 border-width、border-style、border-color。这三个属性都与方向有关，所以可以分开按照方向写，也可以简写。 简写快速记忆 方向记忆：顺序为上右下左，也可以按照从上开始顺时针">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/Chellyyy/HelloCSS/blob/master/demo/border/box.png?raw=true">
+<meta property="og:image" content="https://github.com/Chellyyy/HelloCSS/blob/master/demo/border/border1.png?raw=true">
+<meta property="og:image" content="https://github.com/Chellyyy/HelloCSS/blob/master/demo/border/border2.png?raw=true">
+<meta property="og:image" content="https://github.com/Chellyyy/HelloCSS/blob/master/demo/border/triangle.png?raw=true">
+<meta property="og:image" content="https://github.com/Chellyyy/HelloCSS/blob/master/demo/border/triangle2.png?raw=true">
+<meta property="og:image" content="https://github.com/Chellyyy/HelloCSS/blob/master/demo/border/triangle3.png?raw=true">
+<meta property="article:published_time" content="2021-03-25T05:45:41.000Z">
+<meta property="article:modified_time" content="2021-03-25T05:46:04.942Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="CSS、border">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://github.com/Chellyyy/HelloCSS/blob/master/demo/border/box.png?raw=true">
+
+
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
+
+
+
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/default.css" media="none" onload="if(getComputedStyle(document.documentElement).getPropertyValue('--color-mode').indexOf('dark')===-1)this.media='all'">
+        
+    
+
+    
+    
+
+     
+
+    <!-- custom head -->
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">Chellyyy</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a target="_blank" rel="noopener" href="https://github.com/Chellyyy" class="navbar-menu button">GitHub</a>
+                
+            </div>
+        
+        
+        
+
+        
+        
+
+        
+
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a target="_blank" rel="noopener" href="https://github.com/Chellyyy" class="dropdown-menu button">GitHub</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
+    
+
+<div class="post-title">
+    <h1 class="post-title__text">
+        border
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2021/03/" class="post-meta__date button">2021-03-25</a>
+        
+ 
+        
+    
+    
+
+
+ 
+
+ 
+    </div>
+</div>
+
+
+
+<article class="post content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h1 id="Border"><a href="#Border" class="headerlink" title="Border"></a>Border</h1><p>我平常border写得最多的样式就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    border:1px solid color    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这就能看出来border其实是三个属性的简写，分别是 border-width、border-style、border-color。<br>这三个属性都与方向有关，所以可以分开按照方向写，也可以简写。</p>
+<h2 id="简写快速记忆"><a href="#简写快速记忆" class="headerlink" title="简写快速记忆"></a>简写快速记忆</h2><ul>
+<li>方向记忆：顺序为上右下左，也可以按照从上开始顺时针的方向进行记忆<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    top</span><br><span class="line">left  right</span><br><span class="line">    down</span><br></pre></td></tr></table></figure></li>
+<li>缩写<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    border-width:0; &#x2F;*一个值，四个方位相同*&#x2F;</span><br><span class="line">    border-width:10px 20px; &#x2F;*两个值，上下为10px，左右为20px*&#x2F;</span><br><span class="line">    border-width:5px 10px 15px; &#x2F;*三个值，左右为10px，上为5px，下为15px*&#x2F; </span><br><span class="line">    border-width:5px 10px 15px 20px; &#x2F;*四个值，按照方向记忆，上5px，右10px，下15px，左20px*&#x2F;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实践1实现一个三角形"><a href="#实践1实现一个三角形" class="headerlink" title="实践1实现一个三角形"></a>实践1实现一个三角形</h2>实现三角形的原理很简单，我们先了解一下基础知识，CSS盒模型<br><img src="https://github.com/Chellyyy/HelloCSS/blob/master/demo/border/box.png?raw=true" alt="image">  </li>
+</ul>
+<p>一个盒子包括: margin+border+padding+content</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>盒子宽度高度的计算由CSS的属性box-sizing控制<br><code>content-box</code>默认值，盒子的宽高=width(content)+padding+border设置border和padding不影响content的宽高<br><code>border-box</code>IE盒子模型，盒子的宽高=width(padding+border+content)，在设置了宽高后，如果修改了border和padding，content的宽高会受影响</p>
+<p>言归正传，在我们设置border时如何实现一个三角形呢，我们先来看看border是怎么工作的<br>在i标签上添加如下样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    border-color: #ff0000 #00ff00 #0000ff #ffff00;</span><br><span class="line">    border-style:solid;</span><br><span class="line">    border-width:20px;</span><br><span class="line">    height:50px;</span><br><span class="line">    width:50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>会显示如下样式<br><img src="https://github.com/Chellyyy/HelloCSS/blob/master/demo/border/border1.png?raw=true" alt="image"><br>在上面的基础上，我们设置宽高为0，就得到了如下样式<br><img src="https://github.com/Chellyyy/HelloCSS/blob/master/demo/border/border2.png?raw=true" alt="image"><br>通过这两个样式我们可以得出border的工作原理如下</p>
+<ul>
+<li>上下左右边框交界处出呈现平滑的斜线，在宽高为0的情况下内容为空，原本的梯形就变成了三角形</li>
+<li>通过调整border的宽度大小可以调节三角形形状  </li>
+</ul>
+<p>那要实现我们想要的三角形不是很容易了嘛，只要其他三个边的颜色是透明的，就能得到各个角度的三角形<br>现在只保留top的颜色，将其他颜色设置为透明试试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    width: 0;</span><br><span class="line">    height: 0;</span><br><span class="line">    border: 10px solid transparent;</span><br><span class="line">    position: absolute</span><br><span class="line">    border-top-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>就得到了这样的三角形<br><img src="https://github.com/Chellyyy/HelloCSS/blob/master/demo/border/triangle.png?raw=true" alt="image">  </p>
+<p>日常使用中三角形基本上都需要居中显示，但是通过border实现的三角形其实本质上还是一个正方形边缘画了一个三角形，是无法居中的。<br><img src="https://github.com/Chellyyy/HelloCSS/blob/master/demo/border/triangle2.png?raw=true" alt="image"><br>这个时候我们就可以在这个标签外部包一层容器，计算相对应的padding，使其居中，这样我们用起来也会比较方便。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    width: 20px;</span><br><span class="line">    height: 20px;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    padding: 0 5px 10px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/Chellyyy/HelloCSS/blob/master/demo/border/triangle3.png?raw=true" alt="image">  </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Chellyyy/HelloCSS/blob/master/demo/border/index.html">demo地址</a></p>
+
+    </div>
+     
+    <div class="post-footer__meta"><p>updated at 2021-03-25</p></div> 
+    <div class="post-meta__cats"><a href="/tags/CSS%E3%80%81border/" class="post-tags__link button"># CSS、border</a></div> 
+</article>
+
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/2021/03/25/same-origin-policy/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            Previous Post
+                        </div>
+                        <div class="nav__title">
+                            same-origin-policy
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/2021/03/25/margin-collapse/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            Next Post
+                        </div>
+                        <div class="nav__title">
+                            margin-collapse
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+
+
+</main>
+
+            <footer class="footer">
+    
+
+
+    
+     
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2020&nbsp;-&nbsp;2021 <a href="/">Hexo</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+  
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+    </body>
+</html>
